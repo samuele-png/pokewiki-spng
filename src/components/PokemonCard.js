@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import '../App.css'
 import GenSelector from "../components/GenSelector.js";
 import { useParams, Link } from "react-router-dom"; //URl params hook
 import axios from "axios";
@@ -17,11 +18,27 @@ import {
 
 export default function PokemonCard(props) {
 
-return(
-      <div>
-        <Link to={`/pokemon/${props.name}`}>{props.name} {props.url}</Link>
-        
-      </div>
-);
-  }
-  
+//---------- SPRITE FETCH ------------
+  const spriteUrl = props.url;
+  const [state, set_state] = useState([]);
+  useEffect(() => {
+    async function fetchSprite() {
+      const res = await axios.get(`${spriteUrl}`);
+      set_state(res.data);
+    }
+    fetchSprite();
+  }, [spriteUrl]);
+
+  const fetchedData = state;
+
+  const id = fetchedData.id;
+  const sprite = fetchedData.sprites && fetchedData.sprites.front_default;
+
+  return (
+    <div class="cardBox">
+      <Link to={`/pokemon/${props.name}`}>
+        {props.name}  <img src={sprite} /> {id}
+      </Link>
+    </div>
+  );
+}

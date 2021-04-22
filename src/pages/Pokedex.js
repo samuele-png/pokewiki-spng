@@ -98,11 +98,14 @@ export default function Pokedex() {
   }, [genUrl()]);
   const fetchedData = state.results;
 
+  
+
   return (
     <div>
       {fetchedData &&
         fetchedData.map((state) => (
-          <PokemonCard key={state.name} name={state.name} url={state.url} />
+          
+          <PokemonCard key={state.name} name={state.name} url={state.url} sprite={state.sprite}/>
         ))}
     </div>
   );
