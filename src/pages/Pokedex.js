@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import PokemonCard from "../components/PokemonCard.js";
-import GenSelector from "../components/GenSelector.js";
 import { useParams } from "react-router-dom"; //URl params hook
 import axios from "axios";
 import {
@@ -14,13 +13,12 @@ import {
   MAX_POKEMONS_GEN_VI,
   MAX_POKEMONS_GEN_VII,
   MAX_POKEMONS_GEN_VIII,
+  MAX_POKEMONS_EXTRA,
 } from "../Constants.js";
 
 export default function Pokedex() {
-
   //--------- PROPS FROM URL ------------------
 
-  const { id } = useParams();
   const currentGen = useParams();
   const validGeneration = currentGen.generation;
 
@@ -67,6 +65,10 @@ export default function Pokedex() {
         limit = MAX_POKEMONS_GEN_VIII - MAX_POKEMONS_GEN_VII;
         offset = MAX_POKEMONS_GEN_VII;
         break;
+      case "extra":
+        limit = MAX_POKEMONS_EXTRA - MAX_POKEMONS_GEN_VIII;
+        offset = MAX_POKEMONS_GEN_VIII;
+        break;
 
       default:
         limit = MAX_POKEMONS;
@@ -98,17 +100,67 @@ export default function Pokedex() {
   }, [genUrl()]);
   const fetchedData = state.results;
 
-  
+  //--------------- SEARCH and FILTER ------------
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
-  return (
+  useEffect(() => {
+    const results =
+      fetchedData && fetchedData.filter((e) => e.name.includes(searchTerm));
+
+    setSearchResults(results);
+  }, [searchTerm]);
+  console.log("search results", searchResults);
+
+  //--------------- jsx ---------
+
+  const allPokemon = (
     <div>
       {fetchedData &&
         fetchedData.map((state) => (
-          
-          <PokemonCard key={state.name} name={state.name} url={state.url} sprite={state.sprite}/>
+          <PokemonCard
+            key={state.name}
+            name={state.name}
+            url={state.url}
+            sprite={state.sprite}
+          />
         ))}
     </div>
   );
 
-  // state && state.map((state)=>console.log("this is the final result", state))}
+  const filteredPokemon = (
+    <div>
+      {searchResults &&
+        searchResults.map((state) => (
+          <PokemonCard
+            key={state.name}
+            name={state.name}
+            url={state.url}
+            sprite={state.sprite}
+          />
+        ))}
+    </div>
+  );
+  //---------- result ----------
+  function test(x) {
+    let result;
+    if (x === searchResults) {
+      result = allPokemon;
+    } else {
+      result = filteredPokemon;
+    }
+    return result;
+  }
+
+  return (
+    <div>
+      <input
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        placeholder="Search..."
+      />
+
+      {test()}
+    </div>
+  );
 }

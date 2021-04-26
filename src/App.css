@@ -3,8 +3,54 @@
   height: 100px;
   margin: 20px;
   float: left;
+  border: 1px;
+  border-radius: 25px;
+  border: 2px solid #73ad21;
+  padding: 20px;
+  background-color: #d1e5d9 !important;
 }
-
-.details {
+.tabs {
+  border-radius: 25px;
+  border: 2px solid #73ad21;
+  display: auto;
+  background-color: #d1e5d9 !important;
+}
+.detailsDiv {
+  border-radius: 25px;
+  border: 2px solid #73ad21;
+  background-color: #d1e5d9 !important;
+  margin-left:500px;
+}
+.text-link {
+  text-decoration: inherit;
+}
+.nav {
+  text-decoration: inherit;
+}
+.App {
+  background-image: url("https://ahost2.bulbagarden.net/content/bulbagarden/images/bg-green-2x-optim.png"),
+    linear-gradient(180deg, #e5f1ec 0%, #e5f1ec 322px, #d1e5d9 322px) !important;
+}
+.home {
   text-align: center;
+  display: flex;
+}
+.details {
+  border-radius: 25px;
+  border: 2px solid #73ad21;
+  width: 800px;
+  height: auto;
+  text-align: center;
+  margin-left: 200px;
+}
+.moves {
+  columns: 2 auto;
+}
+.types {
+  display: inline;
+  columns: auto;
+}
+.abilities {
+  display: inline;
+  columns: auto;
 }

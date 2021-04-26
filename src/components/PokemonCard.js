@@ -1,24 +1,11 @@
 import { useState, useEffect } from "react";
-import '../App.css'
-import GenSelector from "../components/GenSelector.js";
-import { useParams, Link } from "react-router-dom"; //URl params hook
+import "../App.css";
+import { Link } from "react-router-dom"; //URl params hook
 import axios from "axios";
-import {
-  API,
-  MAX_POKEMONS,
-  MAX_POKEMONS_GEN_I,
-  MAX_POKEMONS_GEN_II,
-  MAX_POKEMONS_GEN_III,
-  MAX_POKEMONS_GEN_IV,
-  MAX_POKEMONS_GEN_V,
-  MAX_POKEMONS_GEN_VI,
-  MAX_POKEMONS_GEN_VII,
-  MAX_POKEMONS_GEN_VIII,
-} from "../Constants.js";
+import { CAPITALIZE } from "../Constants.js";
 
 export default function PokemonCard(props) {
-
-//---------- SPRITE FETCH ------------
+  //---------- SPRITE FETCH ------------
   const spriteUrl = props.url;
   const [state, set_state] = useState([]);
   useEffect(() => {
@@ -34,10 +21,12 @@ export default function PokemonCard(props) {
   const id = fetchedData.id;
   const sprite = fetchedData.sprites && fetchedData.sprites.front_default;
 
+ 
+
   return (
-    <div class="cardBox">
-      <Link to={`/pokemon/${props.name}`}>
-        {props.name}  <img src={sprite} /> {id}
+    <div className="cardBox">
+      <Link to={`/pokemon/${props.name}`} className='text-link'>
+        {id} {CAPITALIZE(props.name)} <img src={sprite} alt= {props.name, "Sprite Front"}/>
       </Link>
     </div>
   );
