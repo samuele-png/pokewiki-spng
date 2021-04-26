@@ -7,10 +7,10 @@ import { BASENAME } from "./Constants.js";
 import { Fragment } from "react";
 import GenSelector from "./components/GenSelector.js";
 import "./App.css";
-
+import TeamBuilder from "./pages/TeamBuilder";
 function App() {
   return (
-    <div className="App" >
+    <div className="App">
       <Router basename={BASENAME}>
         {" "}
         <h1 className="nav">
@@ -22,7 +22,9 @@ function App() {
             <Switch>
               <Route exact path="/" component={Pokedex} />
               <Route exact path="/generation/:generation" component={Pokedex} />
-              <Route path="/pokemon/:id" component={PokemonDetails} /> ,\
+              <Route path="/pokemon/:id" component={PokemonDetails} />
+              <Route path="/teambuilder" component={TeamBuilder} />
+              ,\
             </Switch>
           </Fragment>
         </div>
