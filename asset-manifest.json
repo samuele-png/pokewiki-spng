@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/pokewiki-spng/static/css/main.3c056a71.chunk.css",
-    "main.js": "/pokewiki-spng/static/js/main.87f7bf99.chunk.js",
-    "main.js.map": "/pokewiki-spng/static/js/main.87f7bf99.chunk.js.map",
+    "main.js": "/pokewiki-spng/static/js/main.21374bf7.chunk.js",
+    "main.js.map": "/pokewiki-spng/static/js/main.21374bf7.chunk.js.map",
     "runtime-main.js": "/pokewiki-spng/static/js/runtime-main.5866b163.js",
     "runtime-main.js.map": "/pokewiki-spng/static/js/runtime-main.5866b163.js.map",
     "static/js/2.86f80e14.chunk.js": "/pokewiki-spng/static/js/2.86f80e14.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.5866b163.js",
     "static/js/2.86f80e14.chunk.js",
     "static/css/main.3c056a71.chunk.css",
-    "static/js/main.87f7bf99.chunk.js"
+    "static/js/main.21374bf7.chunk.js"
   ]
 }
