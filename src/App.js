@@ -20,7 +20,7 @@ function App() {
           <Fragment>
             <GenSelector />
             <Switch>
-              <Route exact path="/" component={Pokedex} />
+              <Route exact path="https://samuele-png.github.io/pokewiki-spng/" component={Pokedex} />
               <Route exact path="/generation/:generation" component={Pokedex} />
               <Route path="/pokemon/:id" component={PokemonDetails} />
               <Route path="/teambuilder" component={TeamBuilder} />
