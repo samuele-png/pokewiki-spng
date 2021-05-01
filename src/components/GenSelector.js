@@ -8,11 +8,6 @@ const GenSelector = ({ currentGeneration }) => {
   return (
     <div className="tabs">
       <ul>
-        <li className={isActive("all")}>
-          <Link to={"/generation/all"} className="text-link">
-            All
-          </Link>
-        </li>
         <li className={isActive("1")}>
           <Link to={"/generation/1"} className="text-link">
             First generation
@@ -44,7 +39,7 @@ const GenSelector = ({ currentGeneration }) => {
           </Link>
         </li>
         <li className={isActive("7")}>
-          <Link to={"/generation/7"} className="text-link" >
+          <Link to={"/generation/7"} className="text-link">
             Seventh generation
           </Link>
         </li>

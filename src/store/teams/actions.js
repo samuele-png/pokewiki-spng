@@ -4,6 +4,6 @@ export const addTeams = ({ name, description, pokemon }) => ({
       name,
       description,
       pokemon,
-      id: Math.random(),
+      id: Math.random()*101|0
     },
   });

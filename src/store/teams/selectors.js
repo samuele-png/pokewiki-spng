@@ -1,1 +1,1 @@
-export const selectTeams = reduxState => reduxState.team.allTeams
+export const selectTeams = reduxState => reduxState.team.myTeam

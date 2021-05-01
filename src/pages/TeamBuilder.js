@@ -3,8 +3,8 @@ import AddTeamForm from "../components/AddTeamForm.js";
 export default function Nav() {
   return (
     <div>
-      <AddTeamForm/>
-   <TeamList/>
+      <AddTeamForm />
+      <TeamList />
     </div>
   );
 }
